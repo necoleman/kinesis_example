@@ -48,13 +48,13 @@ def put_words_in_stream(conn, stream_name, words):
     :type words: list
     :param words: A list of strings to put into the stream.
     '''
-    for w in words:
-        try:
-            conn.put_record(stream_name, w, w)
-            print("Put word: " + w + " into stream: " + stream_name)
-        except Exception as e:
-            sys.stderr.write("Encountered an exception while trying to put a word: "
-                             + w + " into stream: " + stream_name + " exception was: " + str(e))
+    w = random.choice(words)
+    try:
+        conn.put_record(stream_name, w, w)
+        print("Put word: " + w + " into stream: " + stream_name)
+    except Exception as e:
+        sys.stderr.write("Encountered an exception while trying to put a word: "
+                + w + " into stream: " + stream_name + " exception was: " + str(e))
 
 def put_words_in_stream_periodically(conn, stream_name, words, period_seconds):
     '''

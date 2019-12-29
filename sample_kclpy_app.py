@@ -89,6 +89,7 @@ class RecordProcessor(processor.RecordProcessorBase):
         ####################################
         self.log("Record (Partition Key: {pk}, Sequence Number: {seq}, Subsequence Number: {sseq}, Data Size: {ds}"
                  .format(pk=partition_key, seq=sequence_number, sseq=sub_sequence_number, ds=len(data)))
+        print(data)
 
     def should_update_sequence(self, sequence_number, sub_sequence_number):
         """
